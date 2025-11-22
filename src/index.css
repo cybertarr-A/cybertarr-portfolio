@@ -1,0 +1,10 @@
+@import './styles/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@400;500;700;900&display=swap');
+
+/* Reset is handled in variables.css mostly, but ensuring root takes full height */
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* Prevent scroll on body, handle inside components if needed */
+}

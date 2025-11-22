@@ -1,0 +1,270 @@
+.projects-section {
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 1200px;
+    perspective: 1000px;
+}
+
+.latest-grid {
+    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.project-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.project-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid rgba(138, 63, 252, 0.3);
+    background: rgba(20, 20, 25, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(138, 63, 252, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.card-front:hover,
+.card-back:hover {
+    border-color: rgba(0, 230, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 230, 255, 0.4),
+        0 0 50px rgba(0, 230, 255, 0.2);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: rgba(20, 20, 25, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: rgba(138, 63, 252, 0.4);
+}
+
+.card-content {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card-front h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.card-front p,
+.card-back p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.category {
+    color: var(--color-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+}
+
+.click-hint {
+    margin-top: var(--spacing-md);
+    font-size: 0.7rem;
+    color: var(--color-text-dim);
+    animation: blink 2s infinite;
+}
+
+.card-back h3 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    margin-top: var(--spacing-sm);
+}
+
+.tech-stack span {
+    background: rgba(0, 230, 255, 0.15);
+    border: 1px solid rgba(0, 230, 255, 0.4);
+    color: var(--color-cyan);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.access-btn {
+    background: linear-gradient(135deg, #d946ef, #8b5cf6);
+    border: none;
+    color: var(--color-white);
+    padding: 12px 24px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 8px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.access-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4);
+}
+
+.holo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0) 50%,
+            rgba(255, 255, 255, 0.03) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Background Micro-animations */
+.bg-matrix::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 230, 255, .1) 25%, rgba(0, 230, 255, .1) 26%, transparent 27%, transparent 74%, rgba(0, 230, 255, .1) 75%, rgba(0, 230, 255, .1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 230, 255, .1) 25%, rgba(0, 230, 255, .1) 26%, transparent 27%, transparent 74%, rgba(0, 230, 255, .1) 75%, rgba(0, 230, 255, .1) 76%, transparent 77%, transparent);
+    background-size: 30px 30px;
+    animation: matrix-scroll 20s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes matrix-scroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
+}
+
+.bg-swirl::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(138, 63, 252, 0.2) 0%, transparent 70%);
+    animation: rotate-bg 10s linear infinite;
+}
+
+@keyframes rotate-bg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bg-pulse::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(198, 255, 0, 0.1) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: pulse-bg 3s infinite;
+}
+
+@keyframes pulse-bg {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}

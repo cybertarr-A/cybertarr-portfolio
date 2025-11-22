@@ -1,0 +1,40 @@
+.boot-sequence {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-lime);
+}
+
+.terminal-text {
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--color-lime);
+}
+
+.prefix {
+    margin-right: 10px;
+    color: var(--color-cyan);
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
