@@ -1,6 +1,5 @@
 import React, { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { ScrollControls, Scroll } from '@react-three/drei';
 import * as THREE from 'three';
 
 const InteractiveParticles = () => {
@@ -140,23 +139,34 @@ const InteractiveParticles = () => {
 
 const Background = ({ children }) => {
     return (
-        <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, backgroundColor: '#000000' }}>
-            <Canvas camera={{ position: [0, 0, 20], fov: 75 }}>
-                <color attach="background" args={['#000000']} />
-                <fog attach="fog" args={['#000000', 20, 50]} />
+        <>
+            {/* Fixed canvas background */}
+            <div style={{
+                width: '100vw',
+                height: '100vh',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: -1,
+                backgroundColor: '#000000'
+            }}>
+                <Canvas camera={{ position: [0, 0, 20], fov: 75 }}>
+                    <color attach="background" args={['#000000']} />
+                    <fog attach="fog" args={['#000000', 20, 50]} />
 
-                <ambientLight intensity={0.2} />
-                <pointLight position={[10, 10, 10]} intensity={1} color="#00E6FF" />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8A3FFC" />
+                    <ambientLight intensity={0.2} />
+                    <pointLight position={[10, 10, 10]} intensity={1} color="#00E6FF" />
+                    <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8A3FFC" />
 
-                <ScrollControls pages={8} damping={0.3}>
                     <InteractiveParticles />
-                    <Scroll html style={{ width: '100%', height: '100%' }}>
-                        {children}
-                    </Scroll>
-                </ScrollControls>
-            </Canvas>
-        </div>
+                </Canvas>
+            </div>
+
+            {/* Scrollable content */}
+            <div style={{ position: 'relative', zIndex: 1 }}>
+                {children}
+            </div>
+        </>
     );
 };
 
