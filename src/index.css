@@ -4,7 +4,6 @@
 /* Reset is handled in variables.css mostly, but ensuring root takes full height */
 #root {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  /* Prevent scroll on body, handle inside components if needed */
+  min-height: 100vh;
+  /* Allow normal scrolling */
 }
