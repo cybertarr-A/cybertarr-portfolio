@@ -4,7 +4,7 @@ import '../styles/BootSequence.css';
 
 const BootSequence = ({ onComplete }) => {
     const [text, setText] = useState('');
-    const fullText = "Initializing Cybertarr-A Portfolio...";
+    const fullText = "Initializing Cybertarr-A Codespace...";
 
     useEffect(() => {
         let index = 0;
