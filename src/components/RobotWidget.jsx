@@ -2,12 +2,12 @@ import { useEffect } from "react";
 
 const quotes = [
   "Talk is cheap. Show me the code.",
-  "First, solve the problem. Then, write the code.",
   "Code never lies, comments sometimes do.",
-  "Debugging is like being a detective in a crime movie where you are the murderer.",
-  "Programs must be written for people to read.",
-  "A good developer is a silent poet of logic.",
-  "Every bug is just a misunderstood feature."
+  "A bug is just a feature waiting for enlightenment.",
+  "Every algorithm is a philosophy in motion.",
+  "Silence the noise. Execute the logic.",
+  "The universe runs on syntax and patience.",
+  "Precision beats power."
 ];
 
 export default function RobotWidget() {
@@ -30,32 +30,42 @@ export default function RobotWidget() {
     <div
       style={{
         position: "absolute",
-        top: "18%",
-        right: "10%",
+        top: "5%",
+        right: "20%",
         textAlign: "center",
-        zIndex: 99
+        zIndex: 99,
+        backdropFilter: "blur(4px)",
+        padding: "10px",
+        borderRadius: "16px"
       }}
     >
       <model-viewer
-        src="https://modelviewer.dev/shared-assets/models/RobotExpressive.glb"
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
         camera-controls
         autoplay
-        animation-name="Wave"
-        style={{ width: "260px", height: "260px" }}
+        style={{
+          width: "260px",
+          height: "260px",
+          filter: "drop-shadow(0 0 25px #00ffff)"
+        }}
+        exposure="1.3"
+        shadow-intensity="0"
+        environment-image="neutral"
       />
 
       <div
         id="robot-quote"
         style={{
           marginTop: "12px",
-          padding: "12px 18px",
-          background: "rgba(0,0,0,0.65)",
-          border: "1px solid cyan",
+          padding: "10px 16px",
+          background: "rgba(0, 10, 20, 0.8)",
+          border: "1px solid #00ffff",
           borderRadius: "14px",
-          color: "#7df9ff",
+          color: "#9efcff",
           fontFamily: "Orbitron, sans-serif",
           fontSize: "14px",
-          boxShadow: "0 0 18px rgba(0,255,255,0.7)"
+          boxShadow: "0 0 20px rgba(0,255,255,0.6)",
+          textShadow: "0 0 8px rgba(0,255,255,0.8)"
         }}
       ></div>
     </div>
