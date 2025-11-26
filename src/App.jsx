@@ -7,6 +7,7 @@ import Hero from './sections/Hero';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
+import RobotWidget from './components/RobotWidget';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -26,13 +27,19 @@ function App() {
       {!loading && (
         <Background>
           <Navigation />
-          <main style={{ paddingTop: '80px', color: 'white' }}>
-            {/* Sections will go here */}
+          <main style={{ paddingTop: '80px', color: 'white', position: 'relative' }}>
+            
+            {/* Core Sections */}
             <Welcome />
             <Hero />
+
+            {/* 3D Robot placed beside DNA / Hero zone */}
+            <RobotWidget />
+
             <Skills />
             <Projects />
             <Contact />
+
           </main>
         </Background>
       )}
