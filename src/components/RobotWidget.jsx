@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "@google/model-viewer";
 
 const quotes = [
   "Talk is cheap. Show me the code.",
@@ -18,25 +17,23 @@ export default function RobotWidget() {
 
     function updateQuote() {
       if (!quoteBox) return;
-      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      quoteBox.textContent = randomQuote;
+      quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
     }
 
     updateQuote();
-    const interval = setInterval(updateQuote, 120000); // every 2 minutes
+    const interval = setInterval(updateQuote, 120000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      id="robot-container"
       style={{
         position: "absolute",
-        top: "20%",
-        right: "8%",
+        top: "18%",
+        right: "10%",
         textAlign: "center",
-        zIndex: 50
+        zIndex: 99
       }}
     >
       <model-viewer
@@ -58,10 +55,9 @@ export default function RobotWidget() {
           color: "#7df9ff",
           fontFamily: "Orbitron, sans-serif",
           fontSize: "14px",
-          boxShadow: "0 0 18px rgba(0,255,255,0.7)",
-          minWidth: "200px"
+          boxShadow: "0 0 18px rgba(0,255,255,0.7)"
         }}
-      />
+      ></div>
     </div>
   );
 }
